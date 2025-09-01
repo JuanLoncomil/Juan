@@ -36,7 +36,29 @@
         border: 2px solid #000; /* Línea negra */
     }
     </style>
+<style>
+body {
+  background-color: #b3d9ff; /* azul claro */
+}
 
+/* Estilo para cada resultado y el botón */
+.resultado-cuadro {
+  background-color: #e0f7fa; /* celeste */
+  border: 2px solid #000;   /* borde negro */
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Opcional: para que el botón de ejemplos también luzca igual */
+.resultado-cuadro button {
+  background-color: #e0f7fa;
+  border: 2px solid #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+</style>
     <br><nav>Mari Mari, el modo de busqueda es desde el españolal mapudungun. </nav><br>
 
     <input type="text" id="busqueda" placeholder="Buscar palabras aquí" onkeydown="if(event.key==='Enter'){buscarColor();}">
