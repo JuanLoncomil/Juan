@@ -2,6 +2,28 @@
     <title>Diccionario de Mapudungun</title>
     <style>
             body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+            @media (max-width: 600px) {
+                body {
+                    font-size: 1em;
+                }
+                input[type="text"], button {
+                    width: 100%;
+                    box-sizing: border-box;
+                    font-size: 1em;
+                    margin-bottom: 8px;
+                }
+                .resultado {
+                    font-size: 1em;
+                    padding: 10px;
+                }
+                nav {
+                    font-size: 1em;
+                }
+            }
         background-color: #3f8cff; /* Verde calipso */
     }
     .resultado {
@@ -14,8 +36,9 @@
         border: 2px solid #000; /* Línea negra */
     }
     </style>
-</head>
-<body>
+
+    <br><nav>Mari Mari, el modo de busqueda es desde el españolal mapudungun. </nav><br>
+
     <input type="text" id="busqueda" placeholder="Buscar palabras aquí" onkeydown="if(event.key==='Enter'){buscarColor();}">
     <button onclick="buscarColor()">Buscar ya</button>
 
@@ -3628,7 +3651,7 @@ respetuosa y formal para significar fallecimiento)</dd>
 <dt>ir a dejar (algo)</dt><dd>elmen</dd>
 <dt>sopa</dt><dd>koru</dd>
 <dt>andar sonando triliu</dt><dd>triliukiyawi</dt>
-<dt>mirar</dt><dd>lelin</dd>
+<dt>mirar</dt><dd>lelin</dd><button>ejemplo</button>
     </dl>
 
   <script>
@@ -3645,8 +3668,10 @@ function buscarColor() {
         let titulo = dts[i].textContent.toLowerCase();
         if (input !== "") {
             if (titulo.includes(input)) {
+                // Agrega el botón de ejemplo en cada resultado
+                let botonEjemplo = `<button onclick="alert('Ejemplo de: ${dts[i].textContent}')">Ejemplo complejo y explicación gramatical</button>`;
                 encontradosParciales.push({
-                    html: `<div class="resultado"><strong>${dts[i].textContent}:</strong><br>${dds[i].innerHTML}</div>`,
+                    html: `<div class="resultado"><strong>${dts[i].textContent}:</strong><br>${dds[i].innerHTML}<br>${botonEjemplo}</div>`,
                     length: dts[i].textContent.length,
                     starts: titulo.startsWith(input)
                 });
